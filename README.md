@@ -81,5 +81,5 @@ Include real-time updates for parking availability and fees.
 The **Vehicle Parking Management System** provides a functional and efficient solution for managing parking spaces. It serves as a foundation that can be expanded upon to meet the evolving needs of users and parking management scenarios.
 ## Team Members
 
-1. **_MD Hasin Anjum (Reg-2021331020) -[ariansust21](https://github.com/pillowarian)_**
-2. **_Sayeed Hassan  (Reg-2021331044) -[Sayeed-1207](https://github.com/Sayeed-1207)_**
+1. **_MD Hasin Anjum (Reg-2021331020) -[Arian](https://github.com/pillowarian)_**
+2. **_Sayeed Hassan  (Reg-2021331044) -[Sayeed](https://github.com/Sayeed-1207)_**
