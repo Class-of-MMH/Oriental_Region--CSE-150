@@ -84,6 +84,13 @@ int main(){
          printf(" ENTER REGISTRATION NUMBER: ");
          scanf("%d", &number);
 
+         total3+=70;
+         fprintf(details, "PRIVATE CAR %f %d", time, number);
+         printf(" SUCCESSFULLY ADDED!!!!");
+         getch();
+         system("CLS");
+         break;
+
          
 
       }
