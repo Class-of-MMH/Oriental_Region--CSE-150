@@ -144,6 +144,9 @@ int main(){
          break;
 
          case 7:
+         total=total1+total2+total3+total4+total5;
+         fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
+         
          exit(0);
          break;
         
