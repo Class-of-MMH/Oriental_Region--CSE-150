@@ -19,6 +19,6 @@ int main(){
 
    fprintf(details, "\n\nDATE: %d-%d-%d", date, month, year);
    fprintf(details, "\n----------------");
-   
+
 
 }
