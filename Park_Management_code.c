@@ -116,7 +116,7 @@ int main(){
          scanf("%d", &number);
 
          total4+=60;
-         fprintf(details, "MOTOR CYCLE %f %d", time, number);
+         fprintf(details, "\t\tMOTOR CYCLE\t\t%.2f\t\t%d\t\t60\n", time, number);
          printf(" SUCCESSFULLY ADDED!!!!");
          getch();
          system("CLS");
