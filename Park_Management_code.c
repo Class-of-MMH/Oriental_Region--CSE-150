@@ -77,7 +77,7 @@ int main(){
 
         total1+=100;
         
-        fprintf(details, "BUS %f %d", time, number);
+        fprintf(details, "\t\tBUS\t\t%.2f\t\t%d\t\t100\n", time, number);
         printf(" SUCCESSFULLY ADDED!!!!");
         getch();
         system("CLS");
@@ -146,7 +146,7 @@ int main(){
          case 7:
          total=total1+total2+total3+total4+total5;
          fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
-         
+
          exit(0);
          break;
         
