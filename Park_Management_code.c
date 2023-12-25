@@ -98,9 +98,20 @@ int main(){
          scanf("%d", &number);
 
          total4+=60;
+         fprintf(details, "MOTOR CYCLE %f %d", time, number);
+         printf(" SUCCESSFULLY ADDED!!!!");
+         getch();
+         system("CLS");
+         break;
+
+         case 5:
+         printf(" ENTER TIME: ");
+         scanf("%f",& time);
+         printf(" ENTER REGISTRATION NUMBER: ");
+         scanf("%d", &number);
+
+         total5+=40;
          
-
-
       }
    }
 
