@@ -5,6 +5,9 @@ int date,month,year;
 int main(){
    system("CLS");
    system("color 0A");
+   
+   FILE *details;
+   details= fopen("Park_Info.txt","a");
 
    printf("\n Enter TODAYS DATE FOR CONTINUE ");
    printf("\n\tENTER DATE: ");
