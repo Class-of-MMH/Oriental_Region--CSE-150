@@ -39,6 +39,10 @@ int main(){
    fprintf(details, "\n----------------");
    system("CLS");
 
-   
+   while(1)
+   {
+      menu();
+      
+   }
 
 }
