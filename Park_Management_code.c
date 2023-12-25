@@ -56,7 +56,7 @@ int main(){
    scanf("%d", &year);
 
    fprintf(details, "\n\nDATE: %d-%d-%d", date, month, year);
-   fprintf(details, "\n----------------");
+   fprintf(details, "\n----------------\n");
    system("CLS");
 
    while(1)
@@ -146,7 +146,8 @@ int main(){
          case 7:
          total=total1+total2+total3+total4+total5;
          fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
-
+         fprintf(details,"\n..........................................\n");
+         
          exit(0);
          break;
         
