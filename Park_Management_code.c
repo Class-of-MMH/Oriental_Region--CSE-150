@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<windows.h>
 #include<conio.h>
-int date,month,year,option,number;
+int date,month,year,option,number,total1;
 char ch;
 float time;
 
@@ -44,7 +44,7 @@ int main(){
    while(1)
    {
       menu();
-      printf("ENTER AN OPTION: ");
+      printf("\n ENTER AN OPTION: ");
       scanf("%d",& option);
       FILE *details;
       details= fopen("Park_Info.txt","a");
@@ -60,12 +60,19 @@ int main(){
         total1+=100;
         
         fprintf(details, "BUS %f %d", time, number);
-        printf("SUCCESSFULLY ADDED!!!!");
+        printf(" SUCCESSFULLY ADDED!!!!");
         getch();
         system("CLS");
         break;
 
-        
+        case 2:
+         printf(" ENTER TIME: ");
+         scanf("%f",& time);
+         printf(" ENTER REGISTRATION NUMBER: ");
+         scanf("%d", &number);
+
+         
+
       }
    }
 
