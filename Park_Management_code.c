@@ -2,6 +2,13 @@
 #include<windows.h>
 int date,month,year;
 
+void menu()
+{
+    FILE *menu;
+    menu= fopen("Park_Menu.txt","r");
+    
+}
+
 int main(){
    system("CLS");
    system("color 0A");
@@ -19,6 +26,7 @@ int main(){
 
    fprintf(details, "\n\nDATE: %d-%d-%d", date, month, year);
    fprintf(details, "\n----------------");
+   system("CLS");
 
 
 }
