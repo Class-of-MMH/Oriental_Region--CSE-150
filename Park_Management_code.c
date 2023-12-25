@@ -17,4 +17,8 @@ int main(){
    printf("\n\tENTER YEAR: ");
    scanf("%d", &year);
 
+   fprintf(details, "\n\nDATE: %d-%d-%d", date, month, year);
+   fprintf(details, "\n----------------");
+   
+
 }
