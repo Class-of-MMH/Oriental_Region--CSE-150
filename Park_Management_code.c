@@ -103,7 +103,7 @@ int main(){
          scanf("%d", &number);
 
          total3+=70;
-         fprintf(details, "PRIVATE CAR %f %d", time, number);
+         fprintf(details, "\t\tPRIVATE CAR\t\t%.2f\t\t%d\t\t70\n", time, number);
          printf(" SUCCESSFULLY ADDED!!!!");
          getch();
          system("CLS");
