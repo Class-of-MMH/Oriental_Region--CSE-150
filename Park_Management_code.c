@@ -90,7 +90,7 @@ int main(){
          scanf("%d", &number);
 
          total2+=80;
-         fprintf(details, "TRUCK %f %d", time, number);
+         fprintf(details, "\t\tTRUCK      \t\t%.2f\t\t%d\t\t80\n", time, number);
          printf(" SUCCESSFULLY ADDED!!!!");
          getch();
          system("CLS");
