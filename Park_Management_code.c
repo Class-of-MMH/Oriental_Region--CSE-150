@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<windows.h>
 int date,month,year;
+char ch;
 
 void menu()
 {
@@ -10,7 +11,13 @@ void menu()
     {
         printf("FILE DOES NOT EXIST!!!!");
     }
-    
+    else {
+        while(!feof(menu))
+        {
+            ch=fgetc(menu);
+            printf("%c", ch);
+        }
+    }
 }
 
 int main(){
