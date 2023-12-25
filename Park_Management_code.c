@@ -129,7 +129,7 @@ int main(){
          scanf("%d", &number);
 
          total5+=40;
-         fprintf(details, "BY CYCLE %f %d", time, number);
+         fprintf(details, "\t\tBY CYCLE\t\t%.2f\t\t%d\t\t40\n", time, number);
          printf(" SUCCESSFULLY ADDED!!!!");
          getch();
          system("CLS");
