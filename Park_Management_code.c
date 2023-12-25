@@ -5,11 +5,21 @@ int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0,total5=0;
 char ch;
 float time;
 
-void park_details;
+void park_details()
 {
     FILE *details;
     details= fopen("Park_Info.txt","r");
-    
+    if(details==NULL)
+    {
+        printf("FILE DOES NOT EXIST!!!!");
+    }
+    else {
+        while(!feof(details))
+        {
+            ch=fgetc(details);
+            printf("%c", ch);
+        }
+    }
 }
 
 void menu()
@@ -124,7 +134,15 @@ int main(){
          system("CLS");
          break;
 
-         
+         case 6:
+         system("CLS");
+         park_details();
+         printf("\n\n\nPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+         getch();
+         system("CLS");
+         break;
+
+        
 
       }
    }
