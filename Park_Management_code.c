@@ -175,11 +175,10 @@ int main(){
          printf("\n\n\n\t\t\tPRESS ANY KEY TO BACK TO MAIN MENU.....");
          system("CLS");
          break;
-
-
-        
         
       }
+
+      return 0;
    }
 
 }
