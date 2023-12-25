@@ -57,6 +57,14 @@ int main(){
          printf(" ENTER REGISTRATION NUMBER: ");
          scanf("%d", &number);
 
+        total1+=100;
+        
+        fprintf(details, "BUS %f %d", time, number);
+        printf("SUCCESSFULLY ADDED!!!!");
+        getch();
+        system("CLS");
+        break;
+
         
       }
    }
