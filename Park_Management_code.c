@@ -150,6 +150,15 @@ int main(){
          
          exit(0);
          break;
+
+         default:
+         printf("INVALID INPUT!!!");
+         getch();
+         printf("\n\n\n\t\t\tPRESS ANY KEY TO BACK TO MAIN MENU.....");
+         system("CLS");
+         break;
+
+         
         
         
       }
