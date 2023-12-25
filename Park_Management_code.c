@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<windows.h>
 #include<conio.h>
-int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0,total5=0;
+#include<stdlib.h>
+int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0,total5=0,total=0;
 char ch;
 float time;
 
@@ -137,12 +138,16 @@ int main(){
          case 6:
          system("CLS");
          park_details();
-         printf("\n\n\nPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+         printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
          getch();
          system("CLS");
          break;
-        
 
+         case 7:
+         exit(0);
+         break;
+        
+        
       }
    }
 
