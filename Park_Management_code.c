@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<windows.h>
 #include<conio.h>
-int date,month,year,option,number,total1,total2;
+int date,month,year,option,number,total1=0,total2=0,total3=0;
 char ch;
 float time;
 
@@ -77,6 +77,12 @@ int main(){
          getch();
          system("CLS");
          break;
+
+         case 3:
+         printf(" ENTER TIME: ");
+         scanf("%f",& time);
+         printf(" ENTER REGISTRATION NUMBER: ");
+         scanf("%d", &number);
 
          
 
