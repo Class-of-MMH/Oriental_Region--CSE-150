@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<windows.h>
-int date,month,year;
+int date,month,year,option;
 char ch;
 
 void menu()
@@ -42,6 +42,11 @@ int main(){
    while(1)
    {
       menu();
+      printf("ENTER AN OPTION: ");
+      scanf("%d",& option);
+      FILE *details;
+      details= fopen("Park_Info.txt","a");
+
       
    }
 
