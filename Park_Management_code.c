@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<windows.h>
-int date,month,year,option;
+#include<conio.h>
+int date,month,year,option,number;
 char ch;
+float time;
 
 void menu()
 {
@@ -47,7 +49,16 @@ int main(){
       FILE *details;
       details= fopen("Park_Info.txt","a");
 
-      
+      switch(option)
+      {
+         case 1:
+         printf(" ENTER TIME: ");
+         scanf("%f",& time);
+         printf(" ENTER REGISTRATION NUMBER: ");
+         scanf("%d", &number);
+
+        
+      }
    }
 
 }
