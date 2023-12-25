@@ -77,7 +77,7 @@ int main(){
 
         total1+=100;
         
-        fprintf(details, "\t\tBUS\t\t%.2f\t\t%d\t\t100\n", time, number);
+        fprintf(details, "\t\tBUS\t\t\t%.2f\t\t%d\t\t100\n", time, number);
         printf(" SUCCESSFULLY ADDED!!!!");
         getch();
         system("CLS");
