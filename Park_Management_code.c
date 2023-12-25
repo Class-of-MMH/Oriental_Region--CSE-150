@@ -6,6 +6,19 @@ int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0,total5=0,t
 char ch;
 float time;
 
+void car()
+{
+  FILE *car;
+  car=fopen("Car_Image.txt","r");
+  if(car==NULL)
+  {
+    printf("FILE DOES NOT EXIST!!!!");
+  }
+  else {
+    
+  }
+}
+
 void park_details()
 {
     FILE *details;
@@ -158,7 +171,7 @@ int main(){
          system("CLS");
          break;
 
-         
+
         
         
       }
