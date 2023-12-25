@@ -15,7 +15,11 @@ void car()
     printf("FILE DOES NOT EXIST!!!!");
   }
   else {
-    
+    while(!feof(car))
+    {
+        ch=fgetc(car);
+        printf("%c", ch);
+    }
   }
 }
 
@@ -74,6 +78,7 @@ int main(){
 
    while(1)
    {
+      car();
       menu();
       printf("\n ENTER AN OPTION: ");
       scanf("%d",& option);
