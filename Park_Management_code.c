@@ -1,9 +1,16 @@
 #include<stdio.h>
 #include<windows.h>
 #include<conio.h>
-int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0;
+int date,month,year,option,number,total1=0,total2=0,total3=0,total4=0,total5=0;
 char ch;
 float time;
+
+void park_details;
+{
+    FILE *details;
+    details= fopen("Park_Info.txt","r");
+    
+}
 
 void menu()
 {
@@ -111,7 +118,14 @@ int main(){
          scanf("%d", &number);
 
          total5+=40;
+         fprintf(details, "BY CYCLE %f %d", time, number);
+         printf(" SUCCESSFULLY ADDED!!!!");
+         getch();
+         system("CLS");
+         break;
+
          
+
       }
    }
 
