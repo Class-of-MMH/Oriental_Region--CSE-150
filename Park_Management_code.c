@@ -6,6 +6,10 @@ void menu()
 {
     FILE *menu;
     menu= fopen("Park_Menu.txt","r");
+    if(menu==NULL)
+    {
+        printf("FILE DOES NOT EXIST!!!!");
+    }
     
 }
 
@@ -28,5 +32,6 @@ int main(){
    fprintf(details, "\n----------------");
    system("CLS");
 
+   
 
 }
