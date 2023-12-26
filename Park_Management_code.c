@@ -166,6 +166,7 @@ int main(){
          fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
          fprintf(details,"\n..........................................\n");
          
+         fclose(details);
          exit(0);
          break;
 
