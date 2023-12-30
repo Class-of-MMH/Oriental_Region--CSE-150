@@ -64,7 +64,7 @@ int main(){
    FILE *details;
    details= fopen("Park_Info.txt","a");
 
-   printf("\n Enter TODAYS DATE FOR CONTINUE ");
+   printf("\n ENTER TODAYS DATE FOR CONTINUE ");
    printf("\n\tENTER DATE: ");
    scanf("%d", &date);
    printf("\n\tENTER MONTH: ");
@@ -166,7 +166,6 @@ int main(){
          fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
          fprintf(details,"\n..........................................\n");
          
-         fclose(details);
          exit(0);
          break;
 
@@ -181,6 +180,7 @@ int main(){
 
    }
 
+    fclose(details);
     return 0;
 
 }
