@@ -204,7 +204,7 @@ int main(){
             system("CLS");
             break;
         
-        case 8:
+         case 8:
          total=total1+total2+total3+total4+total5;
          fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d",total);
          fprintf(details,"\n..........................................\n");
