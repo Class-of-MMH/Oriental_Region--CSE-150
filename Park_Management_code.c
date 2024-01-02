@@ -203,6 +203,13 @@ int main()
             break;
      
         case 7:
+            search_vehicle();
+            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+            getch();
+            system("CLS");
+            break;
+            
+        case 8:
             total = total1 + total2 + total3 + total4 + total5;
             fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d", total);
             fprintf(details, "\n..........................................\n");
