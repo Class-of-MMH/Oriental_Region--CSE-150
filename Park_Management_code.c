@@ -56,6 +56,7 @@ void menu()
         }
     }
 }
+
 void search_vehicle()
 {
     FILE *details;
@@ -198,11 +199,11 @@ int main(){
          break;
         
          case 7:
-            search_vehicle();
-            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
-            getch();
-            system("CLS");
-            break;
+          search_vehicle();
+          printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+          getch();
+          system("CLS");
+          break;
         
          case 8:
          total=total1+total2+total3+total4+total5;
