@@ -62,6 +62,43 @@ void menu()
     }
 }
 
+void search_vehicle()
+{
+    FILE *details;
+    details = fopen("Park_Info.txt", "r");
+    if (details == NULL)
+    {
+        printf(" FILE DOES NOT EXIST!!!!");
+        return;
+    }
+
+    int searchNumber;
+    printf(" ENTER THE REGISTRATION NUMBER TO SEARCH : ");
+    scanf("%d", &searchNumber);
+
+    int found = 0;
+    while (!feof(details))
+    {
+        fscanf(details, "%*s %*s %*s %*s %f %d", &time, &number);
+
+        if (number == searchNumber)
+        {
+            found = 1;
+            printf(" VEHICLE FOUND!\n");
+            printf(" TIME: %.2f\n", time);
+            printf(" REGISTRATION NUMBER: %d\n", number);
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        printf(" VEHICLE NOT FOUND!\n");
+    }
+
+    fclose(details);
+}
+
 int main()
 {
     system("CLS");
