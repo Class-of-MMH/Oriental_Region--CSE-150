@@ -126,69 +126,161 @@ int main()
         printf("\n ENTER AN OPTION: ");
         scanf("%d", &option);
 
+        int hours, minutes;
+        char ampm[3];
+        char timeInput[20];
+
         switch (option)
         {
+
         case 1:
-            printf(" ENTER TIME: ");
-            scanf("%f", &time);
+            printf(" ENTER TIME (HH.MM AM/PM): ");
+            scanf("%s", timeInput);
+
+            if (sscanf(timeInput, "%d.%d %2s", &hours, &minutes, ampm) != 3)
+            {
+                printf(" INVALID TIME FORMAT. PLEASE USE HH.MM AM/PM FORMAT. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
+            if ((strcmp(ampm, "AM") != 0) && (strcmp(ampm, "PM") != 0))
+            {
+                printf(" INVALID AM/PM INDICATOR. PLEASE USE AM OR PM. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
             printf(" ENTER REGISTRATION NUMBER: ");
             scanf("%d", &number);
 
             total1 += 100;
 
-            fprintf(details, "\t\tBUS\t\t\t%.2f\t\t%d\t\t100\n", time, number);
+            fprintf(details, "\t\tBUS\t\t\t%d.%02d %s\t\t%d\t\t100\n", hours, minutes, ampm, number);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
             break;
 
         case 2:
-            printf(" ENTER TIME: ");
-            scanf("%f", &time);
+            printf(" ENTER TIME (HH.MM AM/PM): ");
+            scanf("%s", timeInput);
+
+            if (sscanf(timeInput, "%d.%d %2s", &hours, &minutes, ampm) != 3)
+            {
+                printf(" INVALID TIME FORMAT. PLEASE USE HH.MM AM/PM FORMAT. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
+            if ((strcmp(ampm, "AM") != 0) && (strcmp(ampm, "PM") != 0))
+            {
+                printf(" INVALID AM/PM INDICATOR. PLEASE USE AM OR PM. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
             printf(" ENTER REGISTRATION NUMBER: ");
             scanf("%d", &number);
 
             total2 += 80;
-            fprintf(details, "\t\tTRUCK      \t\t%.2f\t\t%d\t\t80\n", time, number);
+
+            fprintf(details, "\t\tTRUCK      \t\t%d.%02d %s\t\t%d\t\t80\n", hours, minutes, ampm, number);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
             break;
 
         case 3:
-            printf(" ENTER TIME: ");
-            scanf("%f", &time);
+
+            printf(" ENTER TIME (HH.MM AM/PM): ");
+            scanf("%s", timeInput);
+
+            if (sscanf(timeInput, "%d.%d %2s", &hours, &minutes, ampm) != 3)
+            {
+                printf(" INVALID TIME FORMAT. PLEASE USE HH.MM AM/PM FORMAT. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
+            if ((strcmp(ampm, "AM") != 0) && (strcmp(ampm, "PM") != 0))
+            {
+                printf(" INVALID AM/PM INDICATOR. PLEASE USE AM OR PM. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
             printf(" ENTER REGISTRATION NUMBER: ");
             scanf("%d", &number);
 
             total3 += 70;
-            fprintf(details, "\t\tPRIVATE CAR\t\t%.2f\t\t%d\t\t70\n", time, number);
+            fprintf(details, "\t\tPRIVATE CAR\t\t%d.%02d %s\t\t%d\t\t70\n", hours, minutes, ampm, number);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
             break;
 
         case 4:
-            printf(" ENTER TIME: ");
-            scanf("%f", &time);
+            printf(" ENTER TIME (HH.MM AM/PM): ");
+            scanf("%s", timeInput);
+
+            if (sscanf(timeInput, "%d.%d %2s", &hours, &minutes, ampm) != 3)
+            {
+                printf(" INVALID TIME FORMAT. PLEASE USE HH.MM AM/PM FORMAT. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
+            if ((strcmp(ampm, "AM") != 0) && (strcmp(ampm, "PM") != 0))
+            {
+                printf(" INVALID AM/PM INDICATOR. PLEASE USE AM OR PM. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
             printf(" ENTER REGISTRATION NUMBER: ");
             scanf("%d", &number);
 
             total4 += 60;
-            fprintf(details, "\t\tMOTOR CYCLE\t\t%.2f\t\t%d\t\t60\n", time, number);
+            fprintf(details, "\t\tMOTOR CYCLE\t\t%d.%02d %s\t\t%d\t\t60\n", hours, minutes, ampm, number);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
             break;
 
         case 5:
-            printf(" ENTER TIME: ");
-            scanf("%f", &time);
+            printf(" ENTER TIME (HH.MM AM/PM): ");
+            scanf("%s", timeInput);
+
+            if (sscanf(timeInput, "%d.%d %2s", &hours, &minutes, ampm) != 3)
+            {
+                printf(" INVALID TIME FORMAT. PLEASE USE HH.MM AM/PM FORMAT. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
+            if ((strcmp(ampm, "AM") != 0) && (strcmp(ampm, "PM") != 0))
+            {
+                printf(" INVALID AM/PM INDICATOR. PLEASE USE AM OR PM. ");
+                getch();
+                system("CLS");
+                break;
+            }
+
             printf(" ENTER REGISTRATION NUMBER: ");
             scanf("%d", &number);
 
             total5 += 40;
-            fprintf(details, "\t\tBY CYCLE\t\t%.2f\t\t%d\t\t40\n", time, number);
+            fprintf(details, "\t\tBY CYCLE\t\t%d.%02d %s\t\t%d\t\t40\n", hours, minutes, ampm, number);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -201,14 +293,14 @@ int main()
             getch();
             system("CLS");
             break;
-     
+
         case 7:
             search_vehicle();
             printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
             getch();
             system("CLS");
             break;
-            
+
         case 8:
             total = total1 + total2 + total3 + total4 + total5;
             fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d", total);
