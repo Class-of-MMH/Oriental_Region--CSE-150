@@ -303,9 +303,17 @@ int main()
 
         case 8:
             total = total1 + total2 + total3 + total4 + total5;
+            printf("\t\t\t\t\t\t\t\t\t\t\t TOTAL REVENUE = %d\n", total);
             fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d", total);
             fprintf(details, "\n..........................................\n");
+            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO MAIN MENU.....");
+            getch();
+            system("CLS");
+            break;
 
+        case 9:
+            printf("\n\n\t\t....EXITING THE PROGRAM....\n\n");
+            fclose(details);
             exit(0);
             break;
 
