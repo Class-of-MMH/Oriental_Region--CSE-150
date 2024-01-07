@@ -7,6 +7,8 @@
 int date, month, year, option, number, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total = 0;
 char ch;
 float time;
+int totalVehicle = 0;
+#define MAX_VEHICLE_CAPACITY 5
 
 void car()
 {
@@ -99,6 +101,27 @@ void search_vehicle()
     fclose(details);
 }
 
+void vehicle_capacity()
+{
+    printf("\n\t\t  VEHICLE CAPACITY INFORMATION  ");
+    printf("\n\t----------------------------------");
+    printf("\n\tTOTAL VEHICLES ENTERED: %d", totalVehicle);
+    printf("\n\tSLOTS AVAILABLE: %d", MAX_VEHICLE_CAPACITY - totalVehicle);
+
+    if (totalVehicle >= MAX_VEHICLE_CAPACITY)
+    {
+        printf("\n\n\t NO SLOTS AVAILABLE. \n\n\t PRESS ANY KEY TO BACK TO MAIN MENU.....");
+        getch();
+        system("CLS");
+    }
+    else
+    {
+        printf("\n\n\n\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+        getch();
+        system("CLS");
+    }
+}
+
 int main()
 {
     system("CLS");
@@ -129,6 +152,19 @@ int main()
         int hours, minutes;
         char ampm[3];
         char timeInput[20];
+
+        if (totalVehicle >= 5 && (option >= 1 && option <= 5))
+        {
+            printf("\n\n\t NO SLOTS AVAILABLE. PRESS ANY KEY TO BACK TO MAIN MENU.....\n\n");
+            getch();
+            system("CLS");
+            continue;
+        }
+
+        if (option >= 1 && option <= 5)
+        {
+            totalVehicle++;
+        }
 
         switch (option)
         {
@@ -295,15 +331,20 @@ int main()
             break;
 
         case 7:
+            system("CLS");
+            vehicle_capacity();
+            break;
+        
+        case 8:
             search_vehicle();
             printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
             getch();
             system("CLS");
             break;
 
-        case 8:
+        case 9:
             total = total1 + total2 + total3 + total4 + total5;
-            printf("\t\t\t\t\t\t\t\t\t\t\t TOTAL REVENUE = %d\n", total);
+            printf("\n\t TOTAL REVENUE = %d\n", total);
             fprintf(details, "\t\t\t\t\t\t\t\t\t\t\t TOTAL = %d", total);
             fprintf(details, "\n..........................................\n");
             printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO MAIN MENU.....");
@@ -311,7 +352,7 @@ int main()
             system("CLS");
             break;
 
-        case 9:
+        case 10:
             printf("\n\n\t\t....EXITING THE PROGRAM....\n\n");
             fclose(details);
             exit(0);
