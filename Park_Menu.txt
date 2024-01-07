@@ -7,7 +7,8 @@
         .     5.BY CYCLE ------- 40TK.           .
         ..........................................     
         .     6.SHOW DETAILS.                    .
-        .     7.SEARCH VEHICLE.                  .
-        .     8.TOTAL REVENUE.                   .
-        .     9.EXIT.                            .
+        .     7.PARKING SLOTS.                   .
+        .     8.SEARCH VEHICLE.                  .
+        .     9.TOTAL REVENUE.                   .
+        .     10.EXIT.                           .
         ..........................................
