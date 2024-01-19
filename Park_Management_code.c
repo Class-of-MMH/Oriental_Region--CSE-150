@@ -3,12 +3,14 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
-int date, month, year, option, number, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total = 0;
+int option, number, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total = 0;
 char ch;
-float time;
 int totalVehicle = 0;
 #define MAX_VEHICLE_CAPACITY 5
+#define MAX_LINE 2024
+#define FILENAME_SIZE 1024
 
 void car()
 {
@@ -122,6 +124,110 @@ void vehicle_capacity()
     }
 }
 
+void remove_entry()
+{
+    FILE *file, *temp;
+    char filename[FILENAME_SIZE];
+    char temp_filename[FILENAME_SIZE];
+    char buffer[MAX_LINE];
+    int del_id = 0;
+
+    printf(" ENTER FILE NAME: ");
+    scanf("%s", filename);
+    strcpy(temp_filename, "temp__");
+    strcat(temp_filename, filename);
+
+    printf(" ENTER THE REGISTRATION NUMBER YOU WANT TO DELETE: ");
+    scanf("%d", &del_id);
+
+    file = fopen(filename, "r");
+    temp = fopen(temp_filename, "w");
+
+    if (file == NULL || temp == NULL)
+    {
+        printf("ERROR FILE NOT FOUND\n");
+        return;
+    }
+
+    int current_id = 0;
+    int found = 0;
+
+    while (fgets(buffer, MAX_LINE, file) != NULL)
+    {
+        sscanf(buffer, "%d", &current_id);
+
+        if (current_id == del_id)
+        {
+            found = 1;
+        }
+        else
+        {
+            fputs(buffer, temp);
+        }
+    }
+
+    fclose(file);
+    fclose(temp);
+
+    remove(filename);
+    rename(temp_filename, filename);
+
+    if (found)
+    {
+        printf("ENTRY WITH REGISTRATION NUMBER %d IS DELETED SUCCESSFULLY.\n", del_id);
+    }
+    else
+    {
+        printf("ENTRY WITH REGISTRATION NUMBER %d NOT FOUND.\n", del_id);
+    }
+}
+
+void update_entry()
+{
+    FILE *file;
+    char filename[FILENAME_SIZE];
+    char buffer[MAX_LINE];
+    char replace[MAX_LINE];
+    int replace_id = 0;
+
+    printf(" ENTER FILE NAME: ");
+    scanf("%s", filename);
+    getchar();
+
+    printf(" ENTER THE REGISTRATION NUMBER YOU WANT TO UPDATE: ");
+    scanf("%d", &replace_id);
+
+    fflush(stdin);
+
+    printf(" ENTER NEW LINE: ");
+    fgets(replace, MAX_LINE, stdin);
+
+    file = fopen(filename, "r+");
+
+    if (file == NULL)
+    {
+        printf(" ERROR OPENING FILE.\n");
+        return;
+    }
+
+    bool keep_reading = true;
+    int current_id = 0;
+
+    while (fgets(buffer, MAX_LINE, file) != NULL)
+    {
+        if (sscanf(buffer, "%d", &current_id) == 1 && current_id == replace_id)
+        {
+            fseek(file, -strlen(buffer), SEEK_CUR);
+            fputs(replace, file);
+            break;
+        }
+    }
+
+    fclose(file);
+
+    printf(" ENTRY WITH REGISTRATION NUMBER %d IS UPDATED SUCCESSFULLY.\n", replace_id);
+}
+
 int main()
 {
     system("CLS");
@@ -130,15 +236,11 @@ int main()
     FILE *details;
     details = fopen("Park_Info.txt", "a");
 
-    printf("\n ENTER TODAYS DATE FOR CONTINUE ");
-    printf("\n\tENTER DATE: ");
-    scanf("%d", &date);
-    printf("\n\tENTER MONTH: ");
-    scanf("%d", &month);
-    printf("\n\tENTER YEAR: ");
-    scanf("%d", &year);
+    time_t current_time = time(NULL);
 
-    fprintf(details, "\n\nDATE: %d-%d-%d", date, month, year);
+    char date[20];
+    strftime(date, 20, "%d-%m-%Y", localtime(&current_time));
+    fprintf(details, "\n\nDATE: %s", date);
     fprintf(details, "\n----------------\n");
     system("CLS");
 
@@ -353,6 +455,22 @@ int main()
             break;
 
         case 10:
+            system("CLS");
+            remove_entry();
+            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+            getch();
+            system("CLS");
+            break;
+            
+        case 11:
+            system("CLS");
+            update_entry();
+            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
+            getch();
+            system("CLS");
+            break;
+            
+        case 12:
             printf("\n\n\t\t....EXITING THE PROGRAM....\n\n");
             fclose(details);
             exit(0);
