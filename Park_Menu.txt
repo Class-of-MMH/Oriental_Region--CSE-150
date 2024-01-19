@@ -10,5 +10,7 @@
         .     7.VEHICLE CAPACITY.                .
         .     8.SEARCH VEHICLE.                  .
         .     9.TOTAL REVENUE.                   .
-        .     10.EXIT.                           .
+        .     10.REMOVE VEHICLE.                 .
+        .     11.UPDATE VEHICLE.                 .
+        .     12.EXIT.                           .
         ..........................................
