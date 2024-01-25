@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdbool.h>
 
 int option, number, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total = 0;
 char ch;
