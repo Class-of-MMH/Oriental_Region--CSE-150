@@ -3,8 +3,8 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include <stdbool.h>
+#include <time.h>
 
 int option, number, total1 = 0, total2 = 0, total3 = 0, total4 = 0, total5 = 0, total = 0;
 char ch;
@@ -12,6 +12,52 @@ int totalVehicle = 0;
 #define MAX_VEHICLE_CAPACITY 5
 #define MAX_LINE 2024
 #define FILENAME_SIZE 1024
+
+void update_entry()
+{
+    FILE *file;
+    char filename[FILENAME_SIZE];
+    char buffer[MAX_LINE];
+    char replace[MAX_LINE];
+    int replace_id = 0;
+
+    printf(" ENTER FILE NAME: ");
+    scanf("%s", filename);
+    getchar();
+
+    printf(" ENTER THE REGISTRATION NUMBER YOU WANT TO UPDATE: ");
+    scanf("%d", &replace_id);
+
+    fflush(stdin);
+
+    printf(" ENTER NEW LINE: ");
+    fgets(replace, MAX_LINE, stdin);
+
+    file = fopen(filename, "r+");
+
+    if (file == NULL)
+    {
+        printf(" ERROR OPENING FILE.\n");
+        return;
+    }
+
+    bool keep_reading = true;
+    int current_id = 0;
+
+    while (fgets(buffer, MAX_LINE, file) != NULL)
+    {
+        if (sscanf(buffer, "%d", &current_id) == 1 && current_id == replace_id)
+        {
+            fseek(file, -strlen(buffer), SEEK_CUR);
+            fputs(replace, file);
+            break;
+        }
+    }
+
+    fclose(file);
+
+    printf(" ENTRY WITH REGISTRATION NUMBER %d IS UPDATED SUCCESSFULLY.\n", replace_id);
+}
 
 void car()
 {
@@ -67,13 +113,11 @@ void menu()
     }
 }
 
-void search_vehicle()
-{
+void search_vehicle() {
     FILE *details;
     details = fopen("Park_Info.txt", "r");
-    if (details == NULL)
-    {
-        printf(" FILE DOES NOT EXIST!!!!");
+    if (details == NULL) {
+        printf("FILE DOES NOT EXIST!!!!");
         return;
     }
 
@@ -82,22 +126,25 @@ void search_vehicle()
     scanf("%d", &searchNumber);
 
     int found = 0;
-    while (!feof(details))
-    {
-        fscanf(details, "%*s %*s %*s %*s %f %d", &time, &number);
+    int regNumber;
+    float time;
+    char line[MAX_LINE];
 
-        if (number == searchNumber)
-        {
+    while (fgets(line, MAX_LINE, details) != NULL) {
+        
+        sscanf(line, "%d", &regNumber);
+
+        if (regNumber == searchNumber) {
             found = 1;
             printf(" VEHICLE FOUND!\n");
-            printf(" TIME: %.2f\n", time);
-            printf(" REGISTRATION NUMBER: %d\n", number);
+            sscanf(line, "%*d %*s %*s %f", &time);
+            //printf(" TIME: %.2f\n", time);
+            printf(" REGISTRATION NUMBER: %d\n", regNumber);
             break;
         }
     }
 
-    if (!found)
-    {
+    if (!found) {
         printf(" VEHICLE NOT FOUND!\n");
     }
 
@@ -107,7 +154,7 @@ void search_vehicle()
 void vehicle_capacity()
 {
     printf("\n\t\t  VEHICLE CAPACITY INFORMATION  ");
-    printf("\n\t----------------------------------");
+    printf("\n\t---------------------------------------------");
     printf("\n\tTOTAL VEHICLES ENTERED: %d", totalVehicle);
     printf("\n\tSLOTS AVAILABLE: %d", MAX_VEHICLE_CAPACITY - totalVehicle);
 
@@ -183,52 +230,6 @@ void remove_entry()
     }
 }
 
-void update_entry()
-{
-    FILE *file;
-    char filename[FILENAME_SIZE];
-    char buffer[MAX_LINE];
-    char replace[MAX_LINE];
-    int replace_id = 0;
-
-    printf(" ENTER FILE NAME: ");
-    scanf("%s", filename);
-    getchar();
-
-    printf(" ENTER THE REGISTRATION NUMBER YOU WANT TO UPDATE: ");
-    scanf("%d", &replace_id);
-
-    fflush(stdin);
-
-    printf(" ENTER NEW LINE: ");
-    fgets(replace, MAX_LINE, stdin);
-
-    file = fopen(filename, "r+");
-
-    if (file == NULL)
-    {
-        printf(" ERROR OPENING FILE.\n");
-        return;
-    }
-
-    bool keep_reading = true;
-    int current_id = 0;
-
-    while (fgets(buffer, MAX_LINE, file) != NULL)
-    {
-        if (sscanf(buffer, "%d", &current_id) == 1 && current_id == replace_id)
-        {
-            fseek(file, -strlen(buffer), SEEK_CUR);
-            fputs(replace, file);
-            break;
-        }
-    }
-
-    fclose(file);
-
-    printf(" ENTRY WITH REGISTRATION NUMBER %d IS UPDATED SUCCESSFULLY.\n", replace_id);
-}
-
 int main()
 {
     system("CLS");
@@ -297,7 +298,7 @@ int main()
 
             total1 += 100;
 
-            fprintf(details, "\t\tBUS\t\t\t%d.%02d %s\t\t%d\t\t100\n", hours, minutes, ampm, number);
+            fprintf(details, "\t\t%d\t\tBUS\t\t\t%d.%02d %s\t\t100\n", number, hours, minutes, ampm);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -328,7 +329,7 @@ int main()
 
             total2 += 80;
 
-            fprintf(details, "\t\tTRUCK      \t\t%d.%02d %s\t\t%d\t\t80\n", hours, minutes, ampm, number);
+            fprintf(details, "\t\t%d\t\tTRUCK      \t\t%d.%02d %s\t\t80\n", number, hours, minutes, ampm);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -359,7 +360,7 @@ int main()
             scanf("%d", &number);
 
             total3 += 70;
-            fprintf(details, "\t\tPRIVATE CAR\t\t%d.%02d %s\t\t%d\t\t70\n", hours, minutes, ampm, number);
+            fprintf(details, "\t\t%d\t\tPRIVATE CAR\t\t%d.%02d %s\t\t70\n", number, hours, minutes, ampm);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -389,7 +390,7 @@ int main()
             scanf("%d", &number);
 
             total4 += 60;
-            fprintf(details, "\t\tMOTOR CYCLE\t\t%d.%02d %s\t\t%d\t\t60\n", hours, minutes, ampm, number);
+            fprintf(details, "\t\t%d\t\tMOTOR CYCLE\t\t%d.%02d %s\t\t60\n", number, hours, minutes, ampm);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -419,7 +420,7 @@ int main()
             scanf("%d", &number);
 
             total5 += 40;
-            fprintf(details, "\t\tBY CYCLE\t\t%d.%02d %s\t\t%d\t\t40\n", hours, minutes, ampm, number);
+            fprintf(details, "\t\t%d\t\tBY CYCLE\t\t%d.%02d %s\t\t40\n", number, hours, minutes, ampm);
             printf(" SUCCESSFULLY ADDED!!!!");
             getch();
             system("CLS");
@@ -437,7 +438,7 @@ int main()
             system("CLS");
             vehicle_capacity();
             break;
-        
+
         case 8:
             search_vehicle();
             printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
@@ -457,21 +458,13 @@ int main()
 
         case 10:
             system("CLS");
-            remove_entry();
-            printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
-            getch();
-            system("CLS");
-            break;
-            
-        case 11:
-            system("CLS");
             update_entry();
             printf("\n\n\n\t\t\tPRESS ANY KEY TO RETURN BACK TO THE MAIN MENU...");
             getch();
             system("CLS");
             break;
-            
-        case 12:
+
+        case 11:
             printf("\n\n\t\t....EXITING THE PROGRAM....\n\n");
             fclose(details);
             exit(0);
